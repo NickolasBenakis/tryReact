@@ -1,22 +1,34 @@
 import React from 'react';
 import './product.css';
 import Modal from '../modal/modal';
-const Product = (props) => {
+import products from '../../Api/productsData';
 
-    const x = () => {
-        console.log(Modal);
-        alert("Hello World BITCHESSSSS");
+
+class Product extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            products: products
+        }
     }
 
-    return (
-        <div className="container">
-            <ul>
-                <li style={{ fontSize: "larger", listStyle: "none" }}>Title: {props.title}</li>
-                <li style={{ color: "orange", listStyle: "none", display: !props.description && "none" }}>Description: {props.description}</li>
-            </ul>
-            <button id="submit" className="btn btn-primary" onClick={x} ></button>
-        </div>
-    )
-}
 
+    render() {
+        const x = () => {
+            console.log(Modal);
+            alert("Hello World BITCHESSSSS");
+        }
+
+        return (
+            <div className="container">
+                <ul>
+                    <li style={{ fontSize: "larger", listStyle: "none" }}>Title: {this.props.title}</li>
+                    <li style={{ color: "orange", listStyle: "none", display: !this.props.description && "none" }}>Description: {this.props.description}</li>
+                </ul>
+                { (this.props.description) ? <button id="submit" className="btn btn-primary" onClick={x} ></button> : "Coming soon"}
+            </div>
+        )
+    }
+}
 export default Product;
