@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+import './App.css';
+import productsData from './Api/productsData';
+import Product from './components/product/product.jsx';
+
+function App() {
+
+  //const jokesComponent = jokesData.map(joke => <Joke question={joke.question} punchLine={joke.answer} />);
+  let productsComponent = productsData.map(product => <Product title={product.title} description={product.description} />);
+
+  productsComponent.sort((a) => { return (a.props.description) ? -1 : 0 });
+
+  return (
+    <div className="App">
+      {productsComponent}
+    </div>
+  );
 }
 
 export default App;
