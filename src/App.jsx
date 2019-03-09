@@ -10,9 +10,20 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      isLoggedIn: true
+      isLoggedIn: true,
+      count: 0
     }
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleClick(){
+    this.setState(previousState =>{
+      return {
+        count : previousState.count + 1
+      }
+    })
+  }
+
 
   render() {
     
@@ -25,6 +36,9 @@ class App extends React.Component {
         {productsComponent}
         <br />
         <h1>You are currently Logged {showStatus}</h1>
+
+        <button className="btn btn-secondary" onClick={this.handleClick}>Press</button>
+        <h2>This is my State : {this.state.count}</h2>
       </div>
     );
   }

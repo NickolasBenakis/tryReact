@@ -6,16 +6,13 @@ import products from '../../Api/productsData';
 
 class Product extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            products: products
-        }
+    constructor(props) {
+        super(props);
     }
 
 
     render() {
-        const x = () => {
+        const triggerAlert = () => {
             console.log(Modal);
             alert("Hello World BITCHESSSSS");
         }
@@ -26,7 +23,9 @@ class Product extends React.Component {
                     <li style={{ fontSize: "larger", listStyle: "none" }}>Title: {this.props.title}</li>
                     <li style={{ color: "orange", listStyle: "none", display: !this.props.description && "none" }}>Description: {this.props.description}</li>
                 </ul>
-                { (this.props.description) ? <button id="submit" className="btn btn-primary" onClick={x} ></button> : "Coming soon"}
+                
+                {(this.props.description) ? <button id="submit" className="btn btn-primary" onClick={triggerAlert} ></button> : "Coming soon"}
+
             </div>
         )
     }
