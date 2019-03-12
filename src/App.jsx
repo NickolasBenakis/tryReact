@@ -16,7 +16,7 @@ class App extends React.Component {
         return Date();
       },1)
     }
-    
+    // why bind?
     this.handleClick = this.handleClick.bind(this);
   }
 
