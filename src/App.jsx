@@ -12,21 +12,22 @@ class App extends React.Component {
     this.state = {
       isLoggedIn: true,
       count: 0,
-      date: setInterval(function(){
+      date: setInterval(function () {
         return Date();
-      },1)
+      }, 1)
     }
     // why bind?
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClick = this.handleClick;
   }
 
-  handleClick() {
+  handleClick = () => {
     this.setState(previousState => {
       return {
         count: previousState.count + 1
       }
     })
   }
+
 
   changeStyle() {
     return (this.showStatus === "in") && document.getElementById('status').setAttribute("style", "color: green");
